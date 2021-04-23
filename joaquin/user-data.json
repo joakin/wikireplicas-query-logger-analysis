@@ -1,0 +1,188 @@
+{
+  "u2562": {
+    "cn": "Superyetkin",
+    "uid_number": "2562",
+    "uid": "superyetkin",
+    "id": "u2562"
+  },
+  "u3183": {
+    "cn": "Krd",
+    "uid_number": "3183",
+    "uid": "krd",
+    "id": "u3183"
+  },
+  "s51204": {
+    "cn": "tools.bawolff",
+    "uid_number": "51204",
+    "uid": "tools.bawolff",
+    "id": "s51204"
+  },
+  "s51211": {
+    "cn": "tools.wikidata-todo",
+    "uid_number": "51211",
+    "uid": "tools.wikidata-todo",
+    "id": "s51211"
+  },
+  "s51218": {
+    "cn": "tools.fist",
+    "uid_number": "51218",
+    "uid": "tools.fist",
+    "id": "s51218"
+  },
+  "s51223": {
+    "cn": "tools.lists",
+    "uid_number": "51223",
+    "uid": "tools.lists",
+    "id": "s51223"
+  },
+  "s51291": {
+    "cn": "tools.steinsplitter",
+    "uid_number": "51291",
+    "uid": "tools.steinsplitter",
+    "id": "s51291"
+  },
+  "s51333": {
+    "cn": "tools.guc",
+    "uid_number": "51333",
+    "uid": "tools.guc",
+    "id": "s51333"
+  },
+  "s51403": {
+    "cn": "tools.huji",
+    "uid_number": "51403",
+    "uid": "tools.huji",
+    "id": "s51403"
+  },
+  "s51518": {
+    "cn": "tools.tsreports",
+    "uid_number": "51518",
+    "uid": "tools.tsreports",
+    "id": "s51518"
+  },
+  "s51698": {
+    "cn": "tools.superyetkin",
+    "uid_number": "51698",
+    "uid": "tools.superyetkin",
+    "id": "s51698"
+  },
+  "u4802": {
+    "cn": "Doc Taxon",
+    "uid_number": "4802",
+    "uid": "taxonbot",
+    "id": "u4802"
+  },
+  "s51837": {
+    "cn": "tools.taxonbot",
+    "uid_number": "51837",
+    "uid": "tools.taxonbot",
+    "id": "s51837"
+  },
+  "s51848": {
+    "cn": "tools.db",
+    "uid_number": "51848",
+    "uid": "tools.db",
+    "id": "s51848"
+  },
+  "s52506": {
+    "cn": "tools.musikbot",
+    "uid_number": "52506",
+    "uid": "tools.musikbot",
+    "id": "s52506"
+  },
+  "s52788": {
+    "cn": "tools.quarry",
+    "uid_number": "52788",
+    "uid": "tools.quarry",
+    "id": "s52788"
+  },
+  "u13778": {
+    "cn": "Mr.Ibrahem",
+    "uid_number": "13778",
+    "uid": "ibrahemqasim",
+    "id": "u13778"
+  },
+  "s52828": {
+    "cn": "tools.fshbibbot",
+    "uid_number": "52828",
+    "uid": "tools.fshbibbot",
+    "id": "s52828"
+  },
+  "s53003": {
+    "cn": "tools.xtools-dev",
+    "uid_number": "53003",
+    "uid": "tools.xtools-dev",
+    "id": "s53003"
+  },
+  "s53075": {
+    "cn": "tools.sammour",
+    "uid_number": "53075",
+    "uid": "tools.sammour",
+    "id": "s53075"
+  },
+  "s53208": {
+    "cn": "tools.sanaa",
+    "uid_number": "53208",
+    "uid": "tools.sanaa",
+    "id": "s53208"
+  },
+  "s53334": {
+    "cn": "tools.alaabot",
+    "uid_number": "53334",
+    "uid": "tools.alaabot",
+    "id": "s53334"
+  },
+  "s53355": {
+    "cn": "tools.suha",
+    "uid_number": "53355",
+    "uid": "tools.suha",
+    "id": "s53355"
+  },
+  "s53550": {
+    "cn": "tools.grantmetrics",
+    "uid_number": "53550",
+    "uid": "tools.grantmetrics",
+    "id": "s53550"
+  },
+  "s53590": {
+    "cn": "tools.recoin",
+    "uid_number": "53590",
+    "uid": "tools.recoin",
+    "id": "s53590"
+  },
+  "s53728": {
+    "cn": "tools.matsubot",
+    "uid_number": "53728",
+    "uid": "tools.matsubot",
+    "id": "s53728"
+  },
+  "s53792": {
+    "cn": "tools.botwikiawk",
+    "uid_number": "53792",
+    "uid": "tools.botwikiawk",
+    "id": "s53792"
+  },
+  "s53968": {
+    "cn": "tools.fastilybot-reports",
+    "uid_number": "53968",
+    "uid": "tools.fastilybot-reports",
+    "id": "s53968"
+  },
+  "s54209": {
+    "cn": "tools.taxonbota",
+    "uid_number": "54209",
+    "uid": "tools.taxonbota",
+    "id": "s54209"
+  },
+  "s54210": {
+    "cn": "tools.taxonkatbot",
+    "uid_number": "54210",
+    "uid": "tools.taxonkatbot",
+    "id": "s54210"
+  },
+  "u22731": {
+    "cn": "AikoChou",
+    "uid_number": "22731",
+    "uid": "aikochou",
+    "id": "u22731"
+  }
+}
