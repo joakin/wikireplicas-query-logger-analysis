@@ -9,7 +9,7 @@ def get_csv(path: str) -> List[Dict[str, str]]:
         queries = [query for query in reader]
         return queries
 
-def main():
+def main() -> None:
     queries = get_csv('brooke/userqueries.csv')
 
     multiqueries = set()

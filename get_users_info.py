@@ -1,4 +1,4 @@
-from typing import Set, List, Dict
+from typing import Set, List, Dict, Optional, TypeVar
 import re
 import csv
 import time
@@ -11,18 +11,24 @@ def get_csv(path: str) -> List[Dict[str, str]]:
         queries = [query for query in reader]
         return queries
 
+T = TypeVar('T')
+def unwrap_optional(opt: Optional[T]) -> T:
+    if opt is None:
+        raise TypeError(f"Unexpected attempt to unwrap {opt}")
+    else:
+        return opt
 
-def main():
+def main() -> None:
     queries = [row for row in get_csv('joaquin/multiuserqueriesstripped.csv')]
 
-    users = set([row['user'] for row in queries])
+    users_set = set([row['user'] for row in queries])
 
     ids = ""
-    for user in users:
+    for user in users_set:
         id = re.sub(r'^(s|u)', '', user)
         ids += f"(uidNumber={id})"
 
-    print(f"{len(users)} unique users doing multi DB queries")
+    print(f"{len(users_set)} unique users doing multi DB queries")
 
     query_process = subprocess.run(
         ["/bin/bash", "-c", f"ssh labweb1001.wikimedia.org \"ldapsearch -o ldif-wrap=no -x '(|{ids})' uidNumber uid cn\""],
@@ -34,12 +40,12 @@ def main():
 
     raw_results = query_process.stdout.split('\n\n')[1:-2]
 
-    users = {}
+    users : Dict[str, Dict[str, str]] = {}
     for result in raw_results:
         try:
-            uid_number = re.search(r'^uidNumber: (.+)$', result, flags=re.MULTILINE).group(1)
-            cn = re.search(r'^cn: (.+)$', result, flags=re.MULTILINE).group(1)
-            uid = re.search(r'^uid: (.+)$', result, flags=re.MULTILINE).group(1)
+            uid_number = unwrap_optional(re.search(r'^uidNumber: (.+)$', result, flags=re.MULTILINE)).group(1)
+            cn = unwrap_optional(re.search(r'^cn: (.+)$', result, flags=re.MULTILINE)).group(1)
+            uid = unwrap_optional(re.search(r'^uid: (.+)$', result, flags=re.MULTILINE)).group(1)
             id = ('s' if uid.startswith('tools.') else 'u') + uid_number
             users[id] = {
                 "cn": cn,

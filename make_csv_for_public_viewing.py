@@ -13,9 +13,9 @@ def get_csv(path: str) -> List[Dict[str, str]]:
 
 def get_users_json(path: str) -> Dict[str, Dict[str, str]]:
     with open(path) as file:
-        return json.load(file)
+        return json.load(file) # type: ignore
  
-def main():
+def main() -> None:
     errors = []
 
     queries = get_csv('joaquin/multiuserqueriesstripped.csv')

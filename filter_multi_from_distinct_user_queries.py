@@ -15,7 +15,7 @@ def get_csv(path: str) -> List[Dict[str, str]]:
 db_patterns = ["centralauth", "meta_p"]
 
 
-def get_dbs_from_parsed_query_sqlparse(db: str, token_list: Any, regex: Pattern) -> Set[str]:
+def get_dbs_from_parsed_query_sqlparse(db: str, token_list: Any, regex: Pattern[str]) -> Set[str]:
     dbs = set()
     for token in token_list.tokens:
         if isinstance(token, sqlparse.sql.Identifier) and "." in token.value:
@@ -37,7 +37,7 @@ def get_dbs_from_parsed_query_sqlparse(db: str, token_list: Any, regex: Pattern)
     return dbs
 
 
-def is_cross_database(db: str, sql: str, regex) -> Tuple[bool, Set[str]]:
+def is_cross_database(db: str, sql: str, regex: Pattern[str]) -> Tuple[bool, Set[str]]:
     parsed_queries = sqlparse.parse(sql, "utf-8")
     dbs: Set[str] = set()
     if db.strip():
@@ -49,7 +49,7 @@ def is_cross_database(db: str, sql: str, regex) -> Tuple[bool, Set[str]]:
     return len(dbs) > 1, dbs
 
 
-def main():
+def main() -> None:
     wikidb = re.compile(r"[a-z]+wik.*_p")
 
     queries = get_csv('brooke/distinctuserqueries.csv')

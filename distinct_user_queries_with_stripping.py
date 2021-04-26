@@ -20,7 +20,7 @@ def strip_query(q: str) -> str:
     s = digits.sub(r"0", s)
     return s
  
-def main():
+def main() -> None:
     errors = []
 
     queries = get_csv('brooke/distinctuserqueries.csv')

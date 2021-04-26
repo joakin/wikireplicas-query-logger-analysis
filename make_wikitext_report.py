@@ -1,11 +1,11 @@
-from typing import Set, List, Dict
+from typing import Set, List, TypedDict, Dict, Any, Tuple, Union
 import re
 import csv
 import time
 import json
 from pprint import pp
 
-def get_csv(path: str) -> List[Dict[str, str]]:
+def get_csv(path: str) -> List[Dict[str, Any]]:
     with open(path) as csvfile:
         reader = csv.DictReader(csvfile)
         queries = [query for query in reader]
@@ -13,17 +13,17 @@ def get_csv(path: str) -> List[Dict[str, str]]:
 
 def get_users_json(path: str) -> Dict[str, Dict[str, str]]:
     with open(path) as file:
-        return json.load(file)
+        return json.load(file) # type: ignore
 
 
-def sort_rows(row):
+def sort_rows(row: Dict[str, Any]) -> Any:
     return (row['user'], row['query_stripped'], row['db'], row['dbs'])
 
-def key_and_sorted_dbs(dbs):
+def key_and_sorted_dbs(dbs: str) -> Tuple[str, List[str]]:
     dbs_list = sorted(dbs.split(','))
     return ', '.join(dbs_list), dbs_list
 
-def main():
+def main() -> None:
     queries = get_csv('joaquin/multiuserqueriesstripped.csv')
 
     queries.sort(key=sort_rows)
@@ -34,7 +34,7 @@ def main():
         # "host","user","db","query","query_stripped""date","time","dbs"
         query['user'] = users[query['user']]
     
-    queries_by_user = {}
+    queries_by_user: Dict[str, Any] = {}
     for row in queries:
         key = row['user']['cn']
         if key not in queries_by_user:
@@ -47,7 +47,7 @@ def main():
         stats['dbs'][dbs] = stats['dbs'].get(dbs, 0) + 1
 
 
-    queries_by_normalized = {}
+    queries_by_normalized: Dict[str, Any] = {}
     for row in queries:
         key = row['query_stripped']
         if key in queries_by_normalized:
@@ -67,11 +67,11 @@ def main():
         stats['queries'].append(query)
 
     out = ""
-    def add_line(s):
+    def add_line(s: str) -> None:
         nonlocal out
         out += s + "\n"
 
-    db_stats_sorted_by_usage = sorted(db_stats.items(), key=lambda x: -len(x[1]['queries']))
+    db_stats_sorted_by_usage = sorted(db_stats.items(), key=lambda x: -len(x[1]['queries'])) # type: ignore
 
     add_line("""===DBs queried together, with frequencies and users===
 {| class="wikitable mw-collapsible" style="table-layout: fixed; max-width: 100%; overflow-x: auto"
@@ -100,7 +100,7 @@ def main():
         add_line(f"| style='vertical-align: top;' | \n*Unique normalized: {len(unique_normalized)}\n*Unique: {len(row['queries'])}")
         add_line(f"| style='vertical-align: top;' | ")
         
-        sorted_dbs = sorted(row['dbs'].items(), key=lambda x: -x[1])
+        sorted_dbs = sorted(row['dbs'].items(), key=lambda x: -x[1]) # type: ignore
         for dbs, n in sorted_dbs:
             add_line(f"* ({n}) <div style='display: inline-block; max-width: 300px; overflow-x: auto; white-space: nowrap;'>{dbs}</div>")
     add_line("|}")

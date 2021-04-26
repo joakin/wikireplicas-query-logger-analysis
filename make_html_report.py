@@ -1,10 +1,10 @@
-from typing import Set, List, Dict
+from typing import Set, List, Dict, Any
 import re
 import csv
 import time
 import json
 
-def get_csv(path: str) -> List[Dict[str, str]]:
+def get_csv(path: str) -> List[Dict[str, Any]]:
     with open(path) as csvfile:
         reader = csv.DictReader(csvfile)
         queries = [query for query in reader]
@@ -12,14 +12,14 @@ def get_csv(path: str) -> List[Dict[str, str]]:
 
 def get_users_json(path: str) -> Dict[str, Dict[str, str]]:
     with open(path) as file:
-        return json.load(file)
+        return json.load(file) # type: ignore
 
 
-def sort_rows(row):
+def sort_rows(row: Dict[str, str]) -> Any:
     return (row['user'], row['query_stripped'], row['db'], row['dbs'])
 
 
-def main():
+def main() -> None:
     queries = get_csv('joaquin/multiuserqueriesstripped.csv')
 
     queries.sort(key=sort_rows)
